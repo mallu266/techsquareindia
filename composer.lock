@@ -4,9 +4,182 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7f1915ec708986f5c88e22e683d74275",
-    "content-hash": "b7904d07d1e1765a0a199aa11d6301a3",
+    "hash": "c28804ba752cbd5b7fdc757966bbc2e5",
+    "content-hash": "24cb1a87181dec098c5585fd125ff32c",
     "packages": [
+        {
+            "name": "alexpechkarev/geometry-library",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alexpechkarev/geometry-library.git",
+                "reference": "ebbf02c3e907e0bd19c9474fd5eb77b9ca1ce414"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alexpechkarev/geometry-library/zipball/ebbf02c3e907e0bd19c9474fd5eb77b9ca1ce414",
+                "reference": "ebbf02c3e907e0bd19c9474fd5eb77b9ca1ce414",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GeometryLibrary\\": "/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Pechkarev",
+                    "email": "alexpechkarev@gmail.com"
+                }
+            ],
+            "description": "PHP Geometry library provides utility functions for the computation of geometric data on the surface of the Earth.",
+            "homepage": "https://alexpechkarev.github.io/geometry-library/",
+            "keywords": [
+                "computations polygons and polylines",
+                "encoding and decoding polyline paths utilities",
+                "google maps geometry library",
+                "php geometry library",
+                "spherical geometry utilities"
+            ],
+            "time": "2015-09-11 15:40:41"
+        },
+        {
+            "name": "alexpechkarev/google-maps",
+            "version": "1.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alexpechkarev/google-maps.git",
+                "reference": "fa6b843e2c89263f233c1ebaaa6603cbb7aed966"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alexpechkarev/google-maps/zipball/fa6b843e2c89263f233c1ebaaa6603cbb7aed966",
+                "reference": "fa6b843e2c89263f233c1ebaaa6603cbb7aed966",
+                "shasum": ""
+            },
+            "require": {
+                "alexpechkarev/geometry-library": "1.0.0",
+                "illuminate/support": "5.*",
+                "jbroadway/urlify": "^1.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.7.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GoogleMaps\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Pechkarev",
+                    "email": "alexpechkarev@gmail.com"
+                }
+            ],
+            "description": "Collection of Google Maps API Web Services for Laravel",
+            "homepage": "https://alexpechkarev.github.io/google-maps/",
+            "keywords": [
+                "Google Maps API",
+                "directions api",
+                "distance matrix api",
+                "elevation api",
+                "geocoding api",
+                "geolocation api",
+                "google maps api for laravel",
+                "google maps web service for laravel",
+                "laravel google maps api",
+                "places api web service",
+                "roads api",
+                "time zone api"
+            ],
+            "time": "2018-01-09 18:23:57"
+        },
+        {
+            "name": "artesaos/seotools",
+            "version": "v0.12.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/artesaos/seotools.git",
+                "reference": "8f3691fb88f46087e36e22ffe65caf19ad2182e4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/artesaos/seotools/zipball/8f3691fb88f46087e36e22ffe65caf19ad2182e4",
+                "reference": "8f3691fb88f46087e36e22ffe65caf19ad2182e4",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "5.0.* || 5.1.* || 5.2.* || 5.3.* || 5.4.* || 5.5.* || 5.6.*",
+                "illuminate/support": "5.0.* || 5.1.* || 5.2.* || 5.3.* || 5.4.* || 5.5.* || 5.6.*",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~1.0",
+                "orchestra/testbench": "~3.0",
+                "phpspec/phpspec": "~4.0",
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Artesaos\\SEOTools\\Providers\\SEOToolsServiceProvider"
+                    ],
+                    "aliases": {
+                        "SEOMeta": "Artesaos\\SEOTools\\Facades\\SEOMeta",
+                        "OpenGraph": "Artesaos\\SEOTools\\Facades\\OpenGraph",
+                        "Twitter": "Artesaos\\SEOTools\\Facades\\TwitterCard",
+                        "SEO": "Artesaos\\SEOTools\\Facades\\SEOTools"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Artesaos\\SEOTools\\": "src/SEOTools/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vinicius",
+                    "email": "luiz.vinicius73@gmail.com"
+                }
+            ],
+            "description": "SEO Tools for Laravel and Lumen",
+            "keywords": [
+                "laravel5",
+                "lumen",
+                "metatags",
+                "opengraph",
+                "seo",
+                "seotools",
+                "webmaster"
+            ],
+            "time": "2018-04-19 20:48:13"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
@@ -409,6 +582,60 @@
             "time": "2015-04-20 18:58:01"
         },
         {
+            "name": "jbroadway/urlify",
+            "version": "1.1.0-stable",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jbroadway/urlify.git",
+                "reference": "99bb78cd9002d0e9ce479bb81635eb665e37e981"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jbroadway/urlify/zipball/99bb78cd9002d0e9ce479bb81635eb665e37e981",
+                "reference": "99bb78cd9002d0e9ce479bb81635eb665e37e981",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "URLify": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Johnny Broadway",
+                    "email": "johnny@johnnybroadway.com",
+                    "homepage": "http://www.johnnybroadway.com/"
+                }
+            ],
+            "description": "PHP port of URLify.js from the Django project. Transliterates non-ascii characters for use in URLs.",
+            "homepage": "https://github.com/jbroadway/urlify",
+            "keywords": [
+                "encode",
+                "iconv",
+                "link",
+                "slug",
+                "translit",
+                "transliterate",
+                "transliteration",
+                "url",
+                "urlify"
+            ],
+            "time": "2017-01-03 20:12:54"
+        },
+        {
             "name": "laravel/framework",
             "version": "v5.5.40",
             "source": {
@@ -604,6 +831,74 @@
                 "psysh"
             ],
             "time": "2018-04-16 12:10:37"
+        },
+        {
+            "name": "laravelcollective/html",
+            "version": "v5.5.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelCollective/html.git",
+                "reference": "04c596a69975b901f2223eb6eb4adf55354121c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/04c596a69975b901f2223eb6eb4adf55354121c2",
+                "reference": "04c596a69975b901f2223eb6eb4adf55354121c2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "5.5.*",
+                "illuminate/routing": "5.5.*",
+                "illuminate/session": "5.5.*",
+                "illuminate/support": "5.5.*",
+                "illuminate/view": "5.5.*",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "illuminate/database": "5.5.*",
+                "mockery/mockery": "~0.9.4",
+                "phpunit/phpunit": "~5.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.5-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Collective\\Html\\HtmlServiceProvider"
+                    ],
+                    "aliases": {
+                        "Form": "Collective\\Html\\FormFacade",
+                        "Html": "Collective\\Html\\HtmlFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Collective\\Html\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                },
+                {
+                    "name": "Adam Engebretson",
+                    "email": "adam@laravelcollective.com"
+                }
+            ],
+            "description": "HTML and Form Builders for the Laravel Framework",
+            "homepage": "https://laravelcollective.com",
+            "time": "2018-03-24 00:39:21"
         },
         {
             "name": "league/flysystem",

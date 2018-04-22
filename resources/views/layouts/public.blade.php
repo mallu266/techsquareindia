@@ -9,6 +9,8 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>TechSquare</title>
+        <!-- OR -->
+        {!! SEO::generate() !!}
 
         <!-- Styles -->
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -17,32 +19,32 @@
     <body>
         <div id="app">
             <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
+                <div class="container">
+                    <div class="navbar-header">
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+                        <!-- Collapsed Hamburger -->
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
+                            <span class="sr-only">Toggle Navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        <img src="{{asset('system_images/logo.jpg')}}" width="60px" height="60px">
-                    </a>
-                </div>
+                        <!-- Branding Image -->
+                        <a class="navbar-brand" href="{{ url('/') }}">
+                            <img src="{{asset('system_images/logo.jpg')}}" width="60px" height="60px">
+                        </a>
+                    </div>
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
+                    <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                        <!-- Left Side Of Navbar -->
+                        <ul class="nav navbar-nav">
+                            &nbsp;
+                        </ul>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
+                        <!-- Right Side Of Navbar -->
+                        <ul class="nav navbar-nav navbar-right">
+                            <!-- Authentication Links -->
                             <li><a href="{{ url('/') }}">Home</a></li>
                             <li><a href="{{ url('about_us') }}">About Us</a></li>
                             <li class="dropdown">
@@ -67,11 +69,11 @@
                                     </li>
                                 </ul>
                             </li>
-                        <li><a href="{{ url('contact_us') }}">Contact Us</a></li>
-                    </ul>
+                            <li><a href="{{ url('contact_us') }}">Contact Us</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
 
             @yield('content')
         </div>
