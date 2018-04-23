@@ -28,13 +28,18 @@ class ContactController extends Controller {
     }
 
     public function store(Request $request) {
-        $contacts['name'] = $request->get('name');
-        $contacts['email'] = $request->get('email');
-        $contacts['msg'] = $request->get('msg');
+        $data['name'] = $request->get('name');
+        $data['email'] = $request->get('email');
+        $data['msg'] = $request->get('msg');
 
-        Mail::send('emails.contact', $contacts, function($message) {
-            $message->to('mallikarjun266@gmail.com', $contacts['name'])->subject($contacts['msg']);
+        Mail::send('emails.contact', $data, function ($message) {
+            $message->from('arjun@gmail.com', 'Laravel');
+
+            $message->to('mallikarjun266@gmail.com')->cc('mallikarjun@appmocx.com');
         });
+
+
+  
         return redirect()->route('contact.create');
     }
 

@@ -2,8 +2,8 @@ Hi,
 
 A HackerPair user has sent you a message.
 
-Name: {{ $contacts['name'] }}
+Name: {{ $name }}
 
-E-mail: {{ $contacts['email']}}
+E-mail: {{ $email}}
 
-Message: {{ $contacts['msg'] }}
+Message: {{ $msg}}
