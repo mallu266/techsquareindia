@@ -47,15 +47,15 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Address</div>
                 <div class="panel-body">
-                    Techsquare<br>
-                    #41/5,No 8,1st Main 2nd Cross,<br>
-                    Muthurayaswamy Layout, D.B.Sandra<br>
-                    Vidyaranyapura Post,<br>
-                    Bangalore 560097<br>
-                    Phone No: 080-23455484<br>
-                    Mobile No: +91-9900266937<br>
+                   <i class="fa fa-building"></i> Techsquare<br>
+                    <i class="fa fa-road" aria-hidden="true"></i>  #41/5,No 8,1st Main 2nd Cross,<br>
+                    <i class="fa fa-road" aria-hidden="true"></i> Muthurayaswamy Layout, D.B.Sandra<br>
+                    <i class="fa fa-road" aria-hidden="true"></i> Vidyaranyapura Post,<br>
+                    <i class="fa fa-map-marker" aria-hidden="true"></i> Bangalore 560097<br>
+                    <i class="fa fa-phone" aria-hidden="true"></i>: 080-23455484<br>
+                    <i class="fa fa-mobile" aria-hidden="true"></i>: +91-9900266937<br>
                     Website:www.techsquareindia.com<br>
-                    Email.id:query@techsquareindia.com<br>
+                    <i class="fa fa-envelope" aria-hidden="true"></i>:query@techsquareindia.com<br>
                     <img src="{{asset('system_images/contacts.png')}}" class="img-responsive">
                 </div>
             </div>

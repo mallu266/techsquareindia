@@ -6,8 +6,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1>Company Profile</h1>
-            <p><span class="first_letter">T</span>echsquare was established in 2001 for development of industrial and commercial automated systems and electronic control units.</p>
+            
             <h1>Industry focus</h1>
             <p>We have a wide range of solutions for industrial and commercial applications. Our product have been designed and developed with high precision and accuracy .These are tested and calibrated in precise environment.</p>
             <h1>Applications:-</h1>

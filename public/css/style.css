@@ -31,3 +31,9 @@ h1{
 .panel-heading a{
     text-decoration: none;
 }
+footer{
+    width: 100%;
+    color: #fff;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.6);
+}

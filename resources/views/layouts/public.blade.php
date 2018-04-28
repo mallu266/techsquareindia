@@ -15,6 +15,7 @@
         <!-- Styles -->
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
     </head>
     <body>
         <div id="app">
@@ -74,10 +75,22 @@
                     </div>
                 </div>
             </nav>
-
             @yield('content')
         </div>
+        <footer>
+            <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <?php echo date('Y'); ?>
+                </div>
+                <div classs="col-md-8">
 
+
+
+                </div>
+            </div>
+            </div>
+        </footer>
         <!-- Scripts -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>

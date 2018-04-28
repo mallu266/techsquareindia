@@ -18,6 +18,7 @@ Route::get('about_us', 'AboutUsController@index');
 Route::get('contact_us', 'ContactController@index')->name('contact.create');
 Route::get('commercial', 'CommercialController@index');
 Route::get('industrial', 'IndustrialController@index');
+Route::get('defence', 'DefenceController@index');
 
 Route::post('contact', 'ContactController@store')->name('contact.store');
 

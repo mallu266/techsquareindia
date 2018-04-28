@@ -12,5 +12,6 @@ class DefenceController extends Controller
         SEO::setDescription('Defence Products, Cefence');
         SEO::opengraph()->setUrl(url('commercial'));
         SEO::opengraph()->addProperty('type', 'commercial');
+        return view('defence');
     }
 }
