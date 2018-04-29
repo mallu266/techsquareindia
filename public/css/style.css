@@ -4,6 +4,9 @@ body{
 }.navbar{
     margin-bottom: 0px !important;
 }
+.navbar-brand{
+    height: 100px;
+}
 h1{
     font-size: 22px;
     font-weight: bold;

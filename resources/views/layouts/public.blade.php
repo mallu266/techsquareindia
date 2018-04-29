@@ -33,7 +33,7 @@
 
                         <!-- Branding Image -->
                         <a class="navbar-brand" href="{{ url('/') }}">
-                            <img src="{{asset('system_images/logo.jpg')}}" width="60px" height="60px">
+                            <img src="{{asset('system_images/logo.jpg')}}" class="img-responsive" width="200px" height="100px">
                         </a>
                     </div>
 
@@ -44,7 +44,7 @@
                         </ul>
 
                         <!-- Right Side Of Navbar -->
-                        <ul class="nav navbar-nav navbar-right">
+                        <ul class="nav navbar-nav navbar-right" style="margin-top: 20px;">
                             <!-- Authentication Links -->
                             <li><a href="{{ url('/') }}">Home</a></li>
                             <li><a href="{{ url('about_us') }}">About Us</a></li>
