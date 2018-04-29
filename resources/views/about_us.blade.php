@@ -5,8 +5,7 @@
 <div class="clearfix"></div>
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
-            
+        <div class="col-md-6">
             <h1>Industry focus</h1>
             <p>We have a wide range of solutions for industrial and commercial applications. Our product have been designed and developed with high precision and accuracy .These are tested and calibrated in precise environment.</p>
             <h1>Applications:-</h1>
@@ -37,6 +36,13 @@
             <p>
                 We use high frequency R.F.(Radio Frequency) for noise attenuation as a physical layer. We also have built custom designed wireless remote control unit.
             </p>
+        </div>
+        <div class="col-md-6">
+            <img class="img-responsive" src="<?php echo asset('system_images/hta.jpg'); ?>">
+        </div>
+        <div class="col-md-12">
+            
+            
             <h1>Scope Of Work:-</h1>
             <ol>
                 <li>Printed Circuit Board (P.C.B) Design And Manufacturing</li>

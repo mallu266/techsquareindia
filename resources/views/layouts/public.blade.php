@@ -11,7 +11,7 @@
         <title>TechSquare</title>
         <!-- OR -->
         {!! SEO::generate() !!}
-
+        <link rel="shortcut icon" href="<?php echo asset('system_images/favicon.png'); ?>" />
         <!-- Styles -->
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
@@ -79,16 +79,16 @@
         </div>
         <footer>
             <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <?php echo date('Y'); ?>
+                <div class="row">
+                    <div class="col-md-4">
+                        <?php echo date('Y'); ?>
+                    </div>
+                    <div classs="col-md-8">
+
+
+
+                    </div>
                 </div>
-                <div classs="col-md-8">
-
-
-
-                </div>
-            </div>
             </div>
         </footer>
         <!-- Scripts -->

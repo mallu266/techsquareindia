@@ -20,9 +20,20 @@
 </div>
 <div class="container">
     <div class="row">
+        <div class="col-md-12 text-center company">
+            <p>Electronic Control Systems and Automated Engineering</p>
+            <p>Bangalore</p>
+        </div>
         <div class="col-md-12">
             <h1>Company Profile</h1>
-            <p><span class="first_letter">T</span>echsquare was established in 2001 for development of industrial and commercial automated systems and electronic control units.</p>
+            <p><span class="first_letter">T</span><strong>echsquare</strong> was established in 2001 for development of industrial and commercial automated systems and electronic control units.</p>
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <a class="btn btn-success btn-block" href="{{url('about_us')}}">Know More...</a>
+            <br>
         </div>
     </div>
 </div>
