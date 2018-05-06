@@ -44,7 +44,7 @@
                         </ul>
 
                         <!-- Right Side Of Navbar -->
-                        <ul class="nav navbar-nav navbar-right" style="margin-top: 20px;">
+                        <ul class="nav navbar-nav navbar-right">
                             <!-- Authentication Links -->
                             <li><a href="{{ url('/') }}">Home</a></li>
                             <li><a href="{{ url('about_us') }}">About Us</a></li>
@@ -85,8 +85,6 @@
                     </div>
                     <div classs="col-md-8">
 
-
-
                     </div>
                 </div>
             </div>
@@ -95,5 +93,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('js/jquery.cycle2.js') }}"></script>
+        @yield('script')
     </body>
 </html>

@@ -13,6 +13,17 @@ use SEO;
 
 class ContactController extends Controller {
 
+    public function email() {
+        Mail::send('emails.contact', array(
+            'name' => 'Mallikarjun',
+            'email' => 'mallikarjun@appmocx.com',
+            'msg' => 'This is test message'
+                ), function($message) {
+            $message->from('mallikarjun@appmocx.com');
+            $message->to('mallikarjun266@gmail.com', 'Admin')->subject('Cloudways Feedback');
+        });
+    }
+
     public function index() {
         SEO::setTitle('Contact Us');
         SEO::setDescription('Contact to Owner');
@@ -39,7 +50,7 @@ class ContactController extends Controller {
         });
 
 
-  
+
         return redirect()->route('contact.create');
     }
 
