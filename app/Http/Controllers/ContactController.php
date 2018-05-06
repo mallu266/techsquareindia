@@ -39,12 +39,18 @@ class ContactController extends Controller {
     }
 
     public function store(Request $request) {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'msg' => 'required',
+        ]);
+
         $data['name'] = $request->get('name');
         $data['email'] = $request->get('email');
         $data['msg'] = $request->get('msg');
 
         Mail::send('emails.contact', $data, function ($message) {
-            $message->from('arjun@gmail.com', 'Laravel');
+            $message->from('arjun@gmail.com', 'Enquiry');
 
             $message->to('mallikarjun266@gmail.com')->cc('mallikarjun@appmocx.com');
         });

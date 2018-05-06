@@ -164,7 +164,7 @@
                                             <li>Idle: CPU off, peripherals on</li>
                                             <li>Sleep: CPU off, peripherals off</li>
                                         </ul>
-                                            
+
                                     </li>
                                     <li>Two-Speed Oscillator Start-up</li>
                                     <li>Fail-Safe Clock Monitor</li>
@@ -180,8 +180,35 @@
                                 </ul>
 
                             </div>
-                         <div class="col-md-4">
+                            <div class="col-md-4">
                                 <img src="<?php echo asset('system_images/defence/mmic.png'); ?>" class="img-responsive">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingFour">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        USB SOUND CARD SPEAKER
+                    </a>
+                </div>
+                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="sub_title">Features</div>
+                                <ul>
+                                    <li>MOUNTING OPTION: USB INTERFACE</li>
+                                    <li>CONTROLLER: AUDIO CHIPSET</li>
+                                    <li>POWER REQUIREMENT: INPUT 5V FROM USB</li>
+                                    <li>OUTPUT POWER: 3 WATTS MAX</li>
+
+                                </ul>
+
+                            </div>
+                            <div class="col-md-4">
+                                <img src="<?php echo asset('system_images/defence/sound.jpg'); ?>" class="img-responsive">
                             </div>
                         </div>
                     </div>
