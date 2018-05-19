@@ -44,11 +44,11 @@
                  data-cycle-carousel-visible=3
                  data-cycle-carousel-fluid=true
                  >
-                <img src="{{asset('system_images/thumbnails/com-thumb-1.jpg')}}">
-                <img src="{{asset('system_images/thumbnails/com-thumb-2.jpg')}}">
-                <img src="{{asset('system_images/thumbnails/ind-thumb-1.jpg')}}">
-                <img src="{{asset('system_images/thumbnails/ind-thumb-2.jpg')}}">
-                <img src="{{asset('system_images/thumbnails/def-thumb-1.jpg')}}">
+                <img class="img-thumbnail" src="{{asset('system_images/thumbnails/com-thumb-1.jpg')}}">
+                <img class="img-thumbnail" src="{{asset('system_images/thumbnails/com-thumb-2.jpg')}}">
+                <img class="img-thumbnail" src="{{asset('system_images/thumbnails/ind-thumb-1.jpg')}}">
+                <img class="img-thumbnail" src="{{asset('system_images/thumbnails/ind-thumb-2.jpg')}}">
+                <img class="img-thumbnail" src="{{asset('system_images/thumbnails/def-thumb-1.jpg')}}">
             </div>
         </div>
     </div>

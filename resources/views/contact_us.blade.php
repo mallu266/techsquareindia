@@ -8,9 +8,14 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Contact Us</div>
                 <div class="panel-body">
-                    @if (session('status'))
+                    @if (session('success'))
                     <div class="alert alert-success">
-                        {{ session('status') }}
+                        {{ session('success') }}
+                    </div>
+                    @endif
+                      @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
                     </div>
                     @endif
                     @if ($errors->any())

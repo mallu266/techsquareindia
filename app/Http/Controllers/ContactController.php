@@ -7,6 +7,7 @@ use App\Http\Requests\ContactFormRequest;
 use App\Mail\ContactEmail;
 use Illuminate\Support\Facades\Mail;
 use GoogleMaps\GoogleMaps;
+use App\Mail\ContactUs;
 
 ## or
 use SEO;
@@ -14,14 +15,16 @@ use SEO;
 class ContactController extends Controller {
 
     public function email() {
-        Mail::send('emails.contact', array(
-            'name' => 'Mallikarjun',
-            'email' => 'mallikarjun@appmocx.com',
-            'msg' => 'This is test message'
-                ), function($message) {
-            $message->from('mallikarjun@appmocx.com');
-            $message->to('mallikarjun266@gmail.com', 'Admin')->subject('Cloudways Feedback');
-        });
+//        Mail::send('emails.contact', array(
+//            'name' => 'Mallikarjun',
+//            'email' => 'mallikarjun@appmocx.com',
+//            'msg' => 'This is test message'
+//                ), function($message) {
+//            $message->from('mallikarjun@appmocx.com');
+//            $message->to('mallikarjun266@gmail.com', 'Admin')->subject('Cloudways Feedback');
+//        });
+
+        Mail::send(new ContactUs());
     }
 
     public function index() {
@@ -44,20 +47,11 @@ class ContactController extends Controller {
             'email' => 'required|email',
             'msg' => 'required',
         ]);
-
-        $data['name'] = $request->get('name');
-        $data['email'] = $request->get('email');
-        $data['msg'] = $request->get('msg');
-
-        Mail::send('emails.contact', $data, function ($message) {
-            $message->from('arjun@gmail.com', 'Enquiry');
-
-            $message->to('mallikarjun266@gmail.com')->cc('mallikarjun@appmocx.com');
-        });
-
-
-
-        return redirect()->route('contact.create');
+        Mail::send(new ContactUs());
+        if (Mail::failures()) {
+            return back()->with('error', "Email Did't Sent");
+        }
+        return back()->with('success', "Email Sent");
     }
 
 }
