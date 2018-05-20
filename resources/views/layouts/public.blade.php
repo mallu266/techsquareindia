@@ -8,7 +8,6 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>TechSquare</title>
         <!-- OR -->
         {!! SEO::generate() !!}
         <link rel="shortcut icon" href="<?php echo asset('system_images/favicon.png'); ?>" />
