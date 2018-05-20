@@ -12,7 +12,7 @@ return [
      * to learn how to get this file. You can also pass the credentials as an array
      * instead of a file path.
      */
-    'service_account_credentials_json' => storage_path('app/analytics/techsquareindia-c4dd053fa61f.json'),
+    'service_account_credentials_json' => storage_path('app/analytics/Techsquareindia-d78e7a8730e1.json'),
 
     /*
      * The amount of minutes the Google API responses will be cached.
