@@ -8,6 +8,7 @@ use App\Mail\ContactEmail;
 use Illuminate\Support\Facades\Mail;
 use GoogleMaps\GoogleMaps;
 use App\Mail\ContactUs;
+use Exception;
 
 ## or
 use SEO;
@@ -47,9 +48,13 @@ class ContactController extends Controller {
             'email' => 'required|email',
             'msg' => 'required',
         ]);
-        Mail::send(new ContactUs());
-        if (Mail::failures()) {
-            return back()->with('error', "Email Did't Sent");
+        try {
+            Mail::send(new ContactUs());
+            if (Mail::failures()) {
+                return back()->with('error', "Email Did't Sent");
+            }
+        } catch (Exception $ex) {
+            return back()->with('error', $ex->getMessage());
         }
         return back()->with('success', "Email Sent");
     }
