@@ -19,3 +19,4 @@ Route::get('industrial', 'IndustrialController@index');
 Route::get('defence', 'DefenceController@index');
 Route::post('contact', 'ContactController@store')->name('contact.store');
 Route::get('email', 'DefenceController@index');
+Route::get('analysis', 'GoogleController@index');

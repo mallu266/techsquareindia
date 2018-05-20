@@ -156,6 +156,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
         GoogleMaps\ServiceProvider\GoogleMapsServiceProvider::class,
+        Spatie\Analytics\AnalyticsServiceProvider::class,
         
     ],
     /*
@@ -209,5 +210,6 @@ return [
         'Twitter'   => Artesaos\SEOTools\Facades\TwitterCard::class,
         'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
         'GoogleMaps' => GoogleMaps\Facade\GoogleMapsFacade::class,
+        'Analytics' => Spatie\Analytics\AnalyticsFacade::class,
     ],
 ];
