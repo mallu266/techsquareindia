@@ -55,7 +55,7 @@ class ContactController extends Controller {
                 return back()->with('error', "Email Did't Sent");
             }
         } catch (Exception $ex) {
-            return back()->with('error', $ex->getMessage());
+            return back()->with('error', "Message did't send.")->with('servererror', $ex->getMessage());
         }
         return back()->with('success', "Email Sent");
     }
