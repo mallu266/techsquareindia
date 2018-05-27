@@ -48,6 +48,7 @@ class ContactController extends Controller {
             'email' => 'required|email',
             'msg' => 'required',
         ]);
+//        echo env('MAIL_USERNAME'); exit;
         try {
             Mail::send(new ContactUs());
             if (Mail::failures()) {

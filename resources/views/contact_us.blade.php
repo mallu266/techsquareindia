@@ -4,7 +4,7 @@
 <div class="container">
     <br>
     <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-9">
             <div class="panel panel-default">
                 <div class="panel-heading">Contact Us</div>
                 <div class="panel-body">
@@ -13,7 +13,7 @@
                         {{ session('success') }}
                     </div>
                     @endif
-                      @if (session('error'))
+                    @if (session('error'))
                     <div class="alert alert-danger">
                         {{ session('error') }}
                     </div>
@@ -48,21 +48,19 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-5">
-            <!--            <div class="panel panel-default">
-                            <div class="panel-heading">Address</div>-->
-            <!--<div class="panel-body">-->
-<!--                   <i class="fa fa-building"></i> Techsquare<br>
-                <i class="fa fa-road" aria-hidden="true"></i>  #41/5,No 8,1st Main 2nd Cross,<br>
-                <i class="fa fa-road" aria-hidden="true"></i> Muthurayaswamy Layout, D.B.Sandra<br>
-                <i class="fa fa-road" aria-hidden="true"></i> Vidyaranyapura Post,<br>
-                <i class="fa fa-map-marker" aria-hidden="true"></i> Bangalore 560097<br>
-                <i class="fa fa-phone" aria-hidden="true"></i>: 080-23455484<br>
-                <i class="fa fa-mobile" aria-hidden="true"></i>: +91-9900266937<br>
-                Website:www.techsquareindia.com<br>
-                <i class="fa fa-envelope" aria-hidden="true"></i>:query@techsquareindia.com<br>-->
-            <img src="{{asset('system_images/card.jpg')}}" class="img-responsive">
-            <!--</div>-->
+        <div class="col-md-3 text-center" style="font-size: 16px">
+            <img src="{{asset('system_images/logo.jpg')}}" class="img-responsive">
+               <span>Ganesh S</span><br>
+                <span>Project Manager</span>
+            <div style="font-size: 14px; border-top:2px solid black">
+                #41/5,No 8,1st Main 2nd Cross,<br>
+                Muthurayaswamy Layout, D.B.Sandra<br>
+                Vidyaranyapura Post,<br>
+                Bangalore 560097<br>
+                080-23455484<br>
+                +91-9900266937<br>
+                query@techsquareindia.com<br>
+            </div>
         </div>
     </div>
 </div>
