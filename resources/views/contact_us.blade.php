@@ -14,7 +14,7 @@
                     </div>
                     @endif
                     @if (session('error'))
-                    <div data-server-error="{{ @session('servererror')'' }}" class="alert alert-danger">
+                    <div data-server-error="{{ @session('servererror') }}" class="alert alert-danger">
                         {{ session('error') }}
                         
                     </div>
