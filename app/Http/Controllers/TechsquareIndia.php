@@ -9,10 +9,11 @@ class TechsquareIndia extends Controller {
 
     public function index() {
         SEO::setTitle('Techsquareindia');
-        SEO::setDescription('techsquare, techsquareindia');
+        SEO::setDescription('techsquare, techsquareindia,digital mono');
         SEO::opengraph()->setUrl(url('/'));
         SEO::opengraph()->addProperty('type', 'techsquare');
-        return view('welcome');
+        return view('underconstruction');
+//        return view('welcome');
     }
 
 }
