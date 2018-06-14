@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{app()->getLocale() }}">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <!-- CSRF Token -->
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-
+        <meta name="csrf-token" content="{{csrf_token()}}">
         <!-- OR -->
         {!! SEO::generate() !!}
-        <link rel="shortcut icon" href="<?php echo asset('system_images/favicon.png'); ?>" />
+        <link rel="shortcut icon" href="<?php echo @asset('system_images/favicon.png'); ?>" />
         @yield('custom_css')
         <!-- Styles -->
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -24,7 +22,6 @@
             .dropdown-submenu {
                 position: relative;
             }
-
             .dropdown-submenu>.dropdown-menu {
                 top: 0;
                 left: 100%;
@@ -34,11 +31,9 @@
                 -moz-border-radius: 0 6px 6px;
                 border-radius: 0 6px 6px 6px;
             }
-
             .dropdown-submenu:hover>.dropdown-menu {
                 display: block;
             }
-
             .dropdown-submenu>a:after {
                 display: block;
                 content: " ";
@@ -52,15 +47,12 @@
                 margin-top: 5px;
                 margin-right: -10px;
             }
-
             .dropdown-submenu:hover>a:after {
                 border-left-color: #fff;
             }
-
             .dropdown-submenu.pull-left {
                 float: none;
             }
-
             .dropdown-submenu.pull-left>.dropdown-menu {
                 left: -100%;
                 margin-left: 10px;
@@ -74,13 +66,11 @@
         <div id="app">
             <?php
             $master = DB::table('crediantials')->select('logo')->first();
-
-            $logo = ($master->logo) ? $master->logo : NULL;
+            $logo = ($master) ? @$master->logo : NULL;
             ?>
             <nav class="navbar navbar-default navbar-static-top">
                 <div class="container">
                     <div class="navbar-header">
-
                         <!-- Collapsed Hamburger -->
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
                             <span class="sr-only">Toggle Navigation</span>
@@ -91,16 +81,18 @@
 
                         <!-- Branding Image -->
                         <a class="navbar-brand" href="{{ url('/') }}">
-                            <img src="{{asset('logo/'.$logo)}}" class="img-responsive" width="200px" height="100px">
+                            @if($logo)
+                            <img src="{{asset('logo/'.@$logo)}}" class="img-responsive" width="200px" height="100px">
+                            @else
+                            TechSquareIndia
+                            @endif
                         </a>
                     </div>
-
                     <div class="collapse navbar-collapse" id="app-navbar-collapse">
                         <!-- Left Side Of Navbar -->
                         <ul class="nav navbar-nav">
                             &nbsp;
                         </ul>
-
                         <!-- Right Side Of Navbar -->
                         <ul class="nav navbar-nav navbar-right">
                             <!-- Authentication Links -->
@@ -117,7 +109,7 @@
                                             <ul class="dropdown-menu">
                                                 @foreach($sub_menus as $field)
                                                 <li>
-                                                    <a href="{{url('resources/1/'.$field->id)}}">{{$field->title}}</a>
+                                                    <a href="{{url('resources/1/'.@$field->id)}}">{{$field->title}}</a>
                                                 </li>
                                                 @endforeach
                                             </ul>
@@ -132,7 +124,7 @@
                                             <ul class="dropdown-menu">
                                                 @foreach($sub_menus as $field)
                                                 <li>
-                                                    <a href="{{url('resources/2/'.$field->id)}}" >{{$field->title}}</a>
+                                                    <a href="{{url('resources/2/'.@$field->id)}}" >{{$field->title}}</a>
                                                 </li>
                                                 @endforeach
                                             </ul>
@@ -147,7 +139,7 @@
                                             <ul class="dropdown-menu">
                                                 @foreach($sub_menus as $field)
                                                 <li>
-                                                    <a href="{{url('resources/3/'.$field->id)}}" class="dropdown-toggle" data-toggle="dropdown">{{$field->title}}</a>
+                                                    <a href="{{url('resources/3/'.@$field->id)}}" class="dropdown-toggle" data-toggle="dropdown">{{$field->title}}</a>
                                                 </li>
                                                 @endforeach
                                             </ul>
@@ -179,7 +171,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('js/jquery.cycle2.js') }}"></script>
-
         @yield('script')
     </body>
 </html>
