@@ -7,7 +7,7 @@
     <div class="row">
        
         <div class="col-md-12">
-          <?php echo  $response->about_us; ?>  
+          <?php echo  @$response->about_us; ?>  
         </div>
     </div>
 </div>
