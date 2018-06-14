@@ -158,6 +158,7 @@ return [
         GoogleMaps\ServiceProvider\GoogleMapsServiceProvider::class,
         Spatie\Analytics\AnalyticsServiceProvider::class,
         
+        
     ],
     /*
       |--------------------------------------------------------------------------

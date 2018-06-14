@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 ## or
 use SEO;
+use Illuminate\Support\Facades\DB;
 
 class AboutUsController extends Controller {
 
@@ -13,7 +14,11 @@ class AboutUsController extends Controller {
         SEO::setDescription('About Techsquareindia');
         SEO::opengraph()->setUrl(url('about_us'));
         SEO::opengraph()->addProperty('type', 'about us');
-        return view('about_us');
+        
+        $response = DB::table('about_us')->select('id', 'about_us')
+                
+                ->first();
+        return view('about_us',['response'=>$response]);
     }
 
 }

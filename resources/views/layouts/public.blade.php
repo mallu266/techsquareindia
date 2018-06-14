@@ -11,13 +11,72 @@
         <!-- OR -->
         {!! SEO::generate() !!}
         <link rel="shortcut icon" href="<?php echo asset('system_images/favicon.png'); ?>" />
+        @yield('custom_css')
         <!-- Styles -->
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+        <style>
+            /* To Dropdown navbar dropdown on hover */
+            .navbar-nav > li:hover > .dropdown-menu {
+                display: block;
+            }
+            .dropdown-submenu {
+                position: relative;
+            }
+
+            .dropdown-submenu>.dropdown-menu {
+                top: 0;
+                left: 100%;
+                margin-top: -6px;
+                margin-left: -1px;
+                -webkit-border-radius: 0 6px 6px 6px;
+                -moz-border-radius: 0 6px 6px;
+                border-radius: 0 6px 6px 6px;
+            }
+
+            .dropdown-submenu:hover>.dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-submenu>a:after {
+                display: block;
+                content: " ";
+                float: right;
+                width: 0;
+                height: 0;
+                border-color: transparent;
+                border-style: solid;
+                border-width: 5px 0 5px 5px;
+                border-left-color: #ccc;
+                margin-top: 5px;
+                margin-right: -10px;
+            }
+
+            .dropdown-submenu:hover>a:after {
+                border-left-color: #fff;
+            }
+
+            .dropdown-submenu.pull-left {
+                float: none;
+            }
+
+            .dropdown-submenu.pull-left>.dropdown-menu {
+                left: -100%;
+                margin-left: 10px;
+                -webkit-border-radius: 6px 0 6px 6px;
+                -moz-border-radius: 6px 0 6px 6px;
+                border-radius: 6px 0 6px 6px;
+            }
+        </style>
     </head>
     <body>
         <div id="app">
+            <?php
+            $master = DB::table('crediantials')->select('logo')->first();
+
+            $logo = ($master->logo) ? $master->logo : NULL;
+            ?>
             <nav class="navbar navbar-default navbar-static-top">
                 <div class="container">
                     <div class="navbar-header">
@@ -32,7 +91,7 @@
 
                         <!-- Branding Image -->
                         <a class="navbar-brand" href="{{ url('/') }}">
-                            <img src="{{asset('system_images/logo.jpg')}}" class="img-responsive" width="200px" height="100px">
+                            <img src="{{asset('logo/'.$logo)}}" class="img-responsive" width="200px" height="100px">
                         </a>
                     </div>
 
@@ -46,29 +105,57 @@
                         <ul class="nav navbar-nav navbar-right">
                             <!-- Authentication Links -->
                             <li><a href="{{ url('/') }}">Home</a></li>
-                            <li><a href="{{ url('about_us') }}">About Us</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                    Products<span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{{url('commercial') }}">
-                                            Commercial
-                                        </a>
+                            <li>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products<b class="caret"></b></a>
+                                <ul class="dropdown-menu multi-level">
+                                    <li class="dropdown-submenu">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Defence</a>
+                                        <?php
+                                        $sub_menus = \Illuminate\Support\Facades\DB::table('resources')->where('product_id', 1)->get();
+                                        if ($sub_menus) {
+                                            ?>
+                                            <ul class="dropdown-menu">
+                                                @foreach($sub_menus as $field)
+                                                <li>
+                                                    <a href="{{url('resources/1/'.$field->id)}}">{{$field->title}}</a>
+                                                </li>
+                                                @endforeach
+                                            </ul>
+                                        <?php } ?>
                                     </li>
-                                    <li>
-                                        <a href="{{url('defence') }}">
-                                            Defence
-                                        </a>
+                                    <li class="dropdown-submenu">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Industrial</a>
+                                        <?php
+                                        $sub_menus = \Illuminate\Support\Facades\DB::table('resources')->where('product_id', 2)->get();
+                                        if ($sub_menus) {
+                                            ?>
+                                            <ul class="dropdown-menu">
+                                                @foreach($sub_menus as $field)
+                                                <li>
+                                                    <a href="{{url('resources/2/'.$field->id)}}" >{{$field->title}}</a>
+                                                </li>
+                                                @endforeach
+                                            </ul>
+                                        <?php } ?>
                                     </li>
-                                    <li>
-                                        <a href="{{url('industrial') }}">
-                                            Industrial
-                                        </a>
+                                    <li class="dropdown-submenu">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Others</a>
+                                        <?php
+                                        $sub_menus = \Illuminate\Support\Facades\DB::table('resources')->where('product_id', 3)->get();
+                                        if ($sub_menus) {
+                                            ?>
+                                            <ul class="dropdown-menu">
+                                                @foreach($sub_menus as $field)
+                                                <li>
+                                                    <a href="{{url('resources/3/'.$field->id)}}" class="dropdown-toggle" data-toggle="dropdown">{{$field->title}}</a>
+                                                </li>
+                                                @endforeach
+                                            </ul>
+                                        <?php } ?>
                                     </li>
                                 </ul>
                             </li>
+                            <li><a href="{{ url('about_us') }}">About Us</a></li>
                             <li><a href="{{ url('contact_us') }}">Contact Us</a></li>
                         </ul>
                     </div>
@@ -92,6 +179,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('js/jquery.cycle2.js') }}"></script>
+
         @yield('script')
     </body>
 </html>
