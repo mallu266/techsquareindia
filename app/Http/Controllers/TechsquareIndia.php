@@ -17,8 +17,8 @@ class TechsquareIndia extends Controller {
         $thumbnails = DB::table('thumbnails')->select('id', 'description', 'title', 'image')->get();
         $description = DB::table('main_pages')->select('id', 'default')
                 ->first();
-//        return view('underconstruction');
-        return view('welcome', ['response' => $response, 'thumbnails' => $thumbnails, 'description' => $description]);
+        return view('underconstruction');
+//        return view('welcome', ['response' => $response, 'thumbnails' => $thumbnails, 'description' => $description]);
     }
 
     public function resources($type, $id) {
