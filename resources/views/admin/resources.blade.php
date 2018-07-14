@@ -26,7 +26,7 @@
                                 <select class="form-control" name="product_id" required="">
                                     <option value="">Select</option>
                                     @foreach($products as $field)
-                                    <option <?php echo ($field->id == $resources->product_id) ? "selected" : "" ?> value="{{$field->id}}">{{$field->product}}</option>
+                                    <option <?php echo ($field->id == @$resources->product_id) ? "selected" : "" ?> value="{{$field->id}}">{{$field->product}}</option>
                                     @endforeach
                                 </select>
                             </div>
