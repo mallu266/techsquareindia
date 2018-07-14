@@ -23,7 +23,7 @@
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="title">Title:</label>
                             <div class="col-sm-10">
-                                <input type="text" name="title" class="form-control" id="logo" placeholder="Upload Logo">
+                                <input type="text" name="title" class="form-control" id="logo" placeholder="Enter Title">
                             </div>
                         </div>
                         <div class="form-group">
@@ -35,7 +35,7 @@
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="slide">Image:</label>
                             <div class="col-sm-10">
-                                <input type="file" name="image" class="form-control" id="logo" placeholder="Upload Logo">
+                                <input type="file" name="image" class="form-control" id="logo" placeholder="Upload Image">
                             </div>
                         </div>
 
@@ -59,7 +59,7 @@
                             <td>{{$field->title}}</td>
                             <td>{{$field->image}}</td>
                             <td>{{$field->description}}</td>
-                            <td><a href="{{url('admin/thumbnails/delete/'.$field->id)}}">Delete</a></td>
+                            <td><a class="btn btn-danger" href="{{url('admin/thumbnails/delete/'.$field->id)}}">Delete</a></td>
                         </tr>
                         @endforeach
                         @endif

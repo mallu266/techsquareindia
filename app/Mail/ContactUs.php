@@ -35,8 +35,9 @@ class ContactUs extends Mailable {
         $email = $request->input('email');
         return $this->from($request->input('email'), $request->input('name'))
                         ->cc('mallikarjun266@gmail.com')
-                        ->cc('query@techsquareindia')
-                        ->to('techsquare@gmail.com')
+//                        ->cc('query@techsquareindia')
+//                        ->to('techsquare@gmail.com')
+                ->to('mallikarjun266@gmail.com')
                         ->view('emails.contact', ['msg' => $msg, 'name' => $name, 'email' => $email]);
     }
 

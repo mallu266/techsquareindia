@@ -42,6 +42,7 @@ Route::post('product', 'HomeController@postcategory');
 
 Route::get('resources', 'HomeController@getresources');
 Route::get('resources/delete/{id}', 'HomeController@deleteresources');
+Route::get('resources/edit/{id}', 'HomeController@editresources');
 Route::post('resources', 'HomeController@postresources');
 
 

@@ -18,6 +18,7 @@
             /* To Dropdown navbar dropdown on hover */
             .navbar-nav > li:hover > .dropdown-menu {
                 display: block;
+                
             }
             .dropdown-submenu {
                 position: relative;
@@ -27,6 +28,7 @@
                 left: 100%;
                 margin-top: -6px;
                 margin-left: -1px;
+                width:250px;
                 -webkit-border-radius: 0 6px 6px 6px;
                 -moz-border-radius: 0 6px 6px;
                 border-radius: 0 6px 6px 6px;
@@ -45,6 +47,7 @@
                 border-width: 5px 0 5px 5px;
                 border-left-color: #ccc;
                 margin-top: 5px;
+                
                 margin-right: -10px;
             }
             .dropdown-submenu:hover>a:after {
@@ -82,7 +85,7 @@
                         <!-- Branding Image -->
                         <a class="navbar-brand" href="{{ url('/') }}">
                             @if($logo)
-                            <img src="{{asset('logo/'.@$logo)}}" class="img-responsive" width="200px" height="100px">
+                            <img src="{{asset('logo/'.@$logo)}}" class="img-responsive">
                             @else
                             TechSquareIndia
                             @endif

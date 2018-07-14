@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Aboutus;
 use App\MainPage;
+use App\Resources;
 
 class HomeController extends Controller {
 
@@ -131,6 +132,7 @@ class HomeController extends Controller {
     }
 
     public function postresources(Request $request) {
+        $id = $request->get('id');
         $product_id = $request->get('product_id');
         $title = $request->get('title');
         $specifications = $request->get('specifications');
@@ -144,10 +146,22 @@ class HomeController extends Controller {
         $data['product_id'] = $product_id;
         $data['specifications'] = $specifications;
         $data['title'] = $title;
-        $data['image'] = $image;
-        $data['brouchers'] = $broucher;
+        if ($image) {
+            $data['image'] = $image;
+        }
+        if ($broucher) {
+            $data['brouchers'] = $broucher;
+        }
         $data['description'] = $description;
-        DB::table('resources')->insert($data);
+        if ($id) {
+            DB::table('resources')->where('id', $id)->update($data);
+        } else {
+            DB::table('resources')->insert($data);
+        }
+
+
+
+
         return back()->with('status', 'Successful uploaded');
     }
 
@@ -214,6 +228,13 @@ class HomeController extends Controller {
     public function deletedefault($id) {
         DB::table('main_pages')->where('id', $id)->delete();
         return back()->with('status', 'Deleted Successfully');
+    }
+
+    public function editresources($id) {
+        $products = DB::table('products')->select('id', 'product')->get();
+        $response = DB::table('resources')->select('id', 'title', 'image', 'description')->get();
+        $resources = DB::table('resources')->where('id', $id)->first();
+        return view('admin.resources', ['response' => $response, 'products' => $products, 'resources' => $resources]);
     }
 
 }

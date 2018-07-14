@@ -17,7 +17,7 @@ class TechsquareIndia extends Controller {
         $thumbnails = DB::table('thumbnails')->select('id', 'description', 'title', 'image')->get();
         $description = DB::table('main_pages')->select('id', 'default')
                 ->first();
-        if ($_SERVER['SERVER_NAME'] == 'demo.techsquareindia.com') {
+        if ($_SERVER['SERVER_NAME'] == 'demo.techsquareindia.com'||$_SERVER['SERVER_NAME'] == '127.0.0.1'||$_SERVER['SERVER_NAME'] == 'techsquare.test') {
             return view('welcome', ['response' => $response, 'thumbnails' => $thumbnails, 'description' => $description]);
         } else {
             return view('underconstruction');

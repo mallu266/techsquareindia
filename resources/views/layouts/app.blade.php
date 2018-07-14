@@ -11,6 +11,10 @@
     </head>
     <body>
         <div id="app">
+            <?php
+            $master = DB::table('crediantials')->select('logo')->first();
+            $logo = ($master) ? @$master->logo : NULL;
+            ?>
             <nav class="navbar navbar-default navbar-static-top">
                 <div class="container">
                     <div class="navbar-header">
@@ -25,7 +29,11 @@
 
                         <!-- Branding Image -->
                         <a class="navbar-brand" href="{{ url('/') }}">
-                            <img src="{{asset('system_images/logo.jpg')}}" >
+                            @if($logo)
+                            <img src="{{asset('logo/'.@$logo)}}" class="img-responsive">
+                            @else
+                            TechSquareIndia
+                            @endif
                         </a>
                     </div>
 
