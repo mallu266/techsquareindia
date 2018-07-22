@@ -6,7 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{csrf_token()}}">
-        <meta  id="base_url" content="{{ url('/') }}">
         <!-- OR -->
         {!! SEO::generate() !!}
         <link rel="shortcut icon" href="<?php echo @asset('system_images/favicon.png'); ?>" />

@@ -6,8 +6,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta id="base_url" content="{{ url('admin') }}">
         <!-- Styles -->
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+        <style>
+            #maintainance{
+                padding: 20px;
+            }
+            .loader {
+                border: 16px solid #f3f3f3; /* Light grey */
+                border-top: 16px solid #3498db; /* Blue */
+                border-radius: 50%;
+                width: 120px;
+                height: 120px;
+                animation: spin 2s linear infinite;
+            }
+
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        </style>
     </head>
     <body>
         <div id="app">
@@ -47,8 +66,15 @@
                         <ul class="nav navbar-nav navbar-right">
                             <!-- Authentication Links -->
                             @guest
+
                             <li><a href="{{ route('login') }}">Login</a></li>
                             @else
+                            <?php
+                            $crediantials = DB::table('crediantials')->select('live')->first();
+                            $live_status = $crediantials->live;
+                            ?>
+                            <li><div class="text-success" id="maintainance"></div></li>
+                            <li><input onclick="return set_status(this)" type="button" style="margin-top: 15px" class="btn btn-primary btn-xs" value="<?php echo ($live_status == 1) ? "Live" : "Maintainance"; ?>"></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -76,11 +102,49 @@
 
             @yield('content')
         </div>
-
+        <div id="maintainance_modal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-sm">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="loader" style="margin: auto"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Scripts -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.9.2/ckeditor.js"></script>
         @yield('script')
+        <script>
+                                               $base_url = $('#base_url').attr('content');
+                                               function set_status(event) {
+                                                   $value = event.value;
+//                                                   $('#maintainance').html('Please wait we are proceeding...');
+                                                   $("#maintainance_modal").modal('show');
+                                                   setTimeout(start_process, 2000, $value);
+                                               }
+                                               var start_process = function ($value) {
+                                                   $.ajax({
+                                                       url: $base_url + "/maintainance/" + $value,
+                                                       type: "GET",
+                                                       beforeSend: function () {
+                                                       },
+                                                       success: function (data) {
+                                                           window.location.reload();
+                                                       },
+                                                       error: function (msg) {
+                                                           var res = JSON.parse(msg.responseText);
+                                                       },
+                                                       complete: function () {
+
+                                                       }
+                                                   });
+                                               };
+        </script>
     </body>
 </html>

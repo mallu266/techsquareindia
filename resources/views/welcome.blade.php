@@ -47,26 +47,17 @@
 @section('content')
 <div class="cycle-slideshow" 
      data-cycle-fx=fadeout
-     data-cycle-timeout=1000
+     data-cycle-timeout=5000
      data-cycle-pause-on-hover="true"
      >@if($response)
     @foreach($response as $field)
-    <img class="img-responsive" src="{{asset('slides/'.$field->slide)}}">
+    <img onclick="return loadpage(this)" data-product-id="{{$field->product_id}}" data-resource-id="{{$field->resource_id}}" class="img-responsive" src="{{asset('slides/'.$field->slide)}}">
 
     @endforeach
     @endif
 
 </div>
 <div class="container">
-    <div class="row">
-        <div class="col-md-12 text-center company">
-            <p>Electronic Control Systems and Automated Engineering</p>
-            <p>Bangalore</p>
-        </div>
-      
-
-    </div>
-  
     <div class="container">
         <div class="row">
             @if($thumbnails)
@@ -77,7 +68,7 @@
                         <div class="caption">
                             {{$field->title}}
                         </div>
-                        <img class="img-responsive" src="{{asset('thumbnails/'.$field->image)}}">
+                        <img  class="img-responsive" src="{{asset('thumbnails/'.$field->image)}}">
                     </div>
                 </div>
             </div>
@@ -97,30 +88,37 @@
 @section('script')
 <script src="http://malsup.github.io/jquery.cycle2.carousel.js"></script>
 <script>
-$('.slideshow').cycle();
-$(document).ready(function () {
+                            $('.slideshow').cycle();
+                            $base_url = $('#base_url').attr('content');
+                            function loadpage(event) {
+                                $product_id = event.getAttribute('data-product-id');
+                                $resource_id = event.getAttribute('data-resource-id');
+                                window.location.href = $base_url + "/resources/" + $product_id + "/" + $resource_id;
 
-    $(function () {
-        $('.mm_tooltip').tooltip({
-            selector: "[data-toggle=tooltip]",
-            container: "body"
-        })
-    });
+                            }
+                            $(document).ready(function () {
 
-    $('.thumbnail').hover(
-            function () {
-                $(this).find('.caption').slideDown(300); //.fadeIn(250)
-            },
-            function () {
-                $(this).find('.caption').slideUp(200); //.fadeOut(205)
-            }
-    );
+                                $(function () {
+                                    $('.mm_tooltip').tooltip({
+                                        selector: "[data-toggle=tooltip]",
+                                        container: "body"
+                                    })
+                                });
 
-    $('#btndel').on('click', function () {
-        alert('Are you sure you want to delete');
+                                $('.thumbnail').hover(
+                                        function () {
+                                            $(this).find('.caption').slideDown(300); //.fadeIn(250)
+                                        },
+                                        function () {
+                                            $(this).find('.caption').slideUp(200); //.fadeOut(205)
+                                        }
+                                );
 
-    });
+                                $('#btndel').on('click', function () {
+                                    alert('Are you sure you want to delete');
 
-});
+                                });
+
+                            });
 </script>
 @endsection

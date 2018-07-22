@@ -19,6 +19,29 @@
 
                     <form class="form-horizontal" action="{{url('admin/thumbnails')}}" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="title">Products:</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="product_id" required="" onchange="get_resources(this)">
+                                    <option value="">Select</option>
+                                    @foreach($products as $field)
+                                    <option  value="{{$field->id}}">{{$field->product}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="title">Resources:</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" id="resources" name="resource_id" required="">
+                                    <option value="">Select</option>
+                                    @foreach($resources as $field)
+                                    <option  value="{{$field->id}}">{{$field->title}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
 
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="title">Title:</label>
@@ -69,4 +92,26 @@
         </div>
     </div>
 </div>
+@endsection
+@section('script')
+<script>
+    $base_url = $('#base_url').attr('content');
+    function get_resources(event) {
+        $id = event.value;
+        $.ajax({
+            url: $base_url + "/slides/resources/" + $id,
+            type: "GET",
+            beforeSend: function () {
+            },
+            success: function (data) {
+                $("#resources").html(data);
+            },
+            error: function (msg) {
+                var res = JSON.parse(msg.responseText);
+            },
+            complete: function () {
+            }
+        });
+    }
+</script>
 @endsection

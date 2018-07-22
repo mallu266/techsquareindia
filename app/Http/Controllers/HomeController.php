@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use App\Aboutus;
 use App\MainPage;
 use App\Resources;
+use Exception;
+use App\Crediantials;
 
 class HomeController extends Controller {
 
@@ -66,17 +68,39 @@ class HomeController extends Controller {
 
     public function getslides() {
         $response = DB::table('slides')->select('id', 'slide', 'title')->get();
-        return view('admin.slides', ['response' => $response]);
+        $products = DB::table('products')->select('id', 'product')->get();
+        $resources = DB::table('resources')->select('id', 'title')->get();
+        return view('admin.slides', ['response' => $response, "products" => $products, 'resources' => $resources]);
+    }
+
+    public function get_resources($id) {
+        $response = DB::table('resources')
+                ->select('id', 'title')
+                ->where('product_id', $id)
+                ->get();
+        echo "<option value=''>Select Resource</option>";
+        foreach ($response as $field) {
+            echo "<option value='" . $field->id . "'>" . $field->title . "</option>";
+        }
     }
 
     public function postslides(Request $request) {
-        $field = $request->file('slide');
-        $title = $request->get('title');
-        $folder = 'slides';
-        $image = self::upload_images($field, $folder);
-        $data['slide'] = $image;
-        $data['title'] = $title;
-        DB::table('slides')->insert($data);
+        try {
+            $field = $request->file('slide');
+            $title = $request->get('title');
+            $product_id = $request->get('product_id');
+            $resource_id = $request->get('resource_id');
+            $folder = 'slides';
+            $image = self::upload_images($field, $folder);
+            $data['slide'] = $image;
+            $data['title'] = $title;
+            $data['product_id'] = $product_id;
+            $data['resource_id'] = $resource_id;
+            DB::table('slides')->insert($data);
+        } catch (Exception $ex) {
+            echo $ex->getMessage();
+            exit;
+        }
         return back()->with('status', 'Successful uploaded');
     }
 
@@ -86,19 +110,25 @@ class HomeController extends Controller {
     }
 
     public function getthumbnails() {
+        $products = DB::table('products')->select('id', 'product')->get();
+        $resources = DB::table('resources')->select('id', 'title')->get();
         $response = DB::table('thumbnails')->select('id', 'description', 'title', 'image')->get();
-        return view('admin.thumbnails', ['response' => $response]);
+        return view('admin.thumbnails', ['response' => $response, 'products' => $products, 'resources' => $resources]);
     }
 
     public function postthumbnails(Request $request) {
         $field = $request->file('image');
         $title = $request->get('title');
+        $product_id = $request->get('product_id');
+        $resource_id = $request->get('resource_id');
         $description = $request->get('description');
         $folder = 'thumbnails';
         $image = self::upload_images($field, $folder);
         $data['image'] = $image;
         $data['title'] = $title;
         $data['description'] = $description;
+        $data['product_id'] = $product_id;
+        $data['resource_id'] = $resource_id;
         DB::table('thumbnails')->insert($data);
         return back()->with('status', 'Successful uploaded');
     }
@@ -235,6 +265,21 @@ class HomeController extends Controller {
         $response = DB::table('resources')->select('id', 'title', 'image', 'description')->get();
         $resources = DB::table('resources')->where('id', $id)->first();
         return view('admin.resources', ['response' => $response, 'products' => $products, 'resources' => $resources]);
+    }
+
+    public function maintainance($value) {
+        $crediantials = Crediantials::first();
+        if ($value == 'Live') {
+            $status = 0;
+        } else {
+            $status = 1;
+        }
+        $crediantials->live = $status;
+        if ($crediantials->save()) {
+            return 'true';
+        } else {
+            return 'false';
+        }
     }
 
 }

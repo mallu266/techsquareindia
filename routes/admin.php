@@ -31,6 +31,7 @@ Route::get('logo/delete/{id}', 'HomeController@deletelogo');
 Route::post('logo', 'HomeController@postlogo');
 Route::get('slides', 'HomeController@getslides');
 Route::get('slides/delete/{id}', 'HomeController@deleteslide');
+Route::get('slides/resources/{id}', 'HomeController@get_resources');
 Route::post('slides', 'HomeController@postslides');
 Route::get('thumbnails', 'HomeController@getthumbnails');
 Route::get('thumbnails/delete/{id}', 'HomeController@deletethumbnails');
@@ -52,4 +53,4 @@ Route::post('about_us', 'HomeController@postaboutus');
 
 Route::get('default', 'HomeController@getdefault');
 Route::get('default/delete/{id}', 'HomeController@deletedefault');
-Route::post('default', 'HomeController@postdefault');
+Route::get('maintainance/{value}', 'HomeController@maintainance');
