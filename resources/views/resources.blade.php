@@ -16,7 +16,7 @@
                 </div>
                 <div class="col-md-4">
                     @if(@$response->brouchers)
-                    <a download="" href="{{asset('asset/resources/brouchers/'.@$response->brouchers)}}" class="btn btn-primary">Broucher</a>
+                    <a download="" href="{{asset('resources/brouchers/'.@$response->brouchers)}}" class="btn btn-primary btn-block">Broucher</a>
                     @endif
                     <img src="{{asset('resources/'.@$response->image)}}" class="img-responsive">
                 </div>

@@ -15,8 +15,16 @@
                     @endif
                     @if (session('error'))
                     <div data-server-error="{{ @session('servererror') }}" class="alert alert-danger">
-                        {{ session('error') }}
-                        
+                        <?php
+                        $crediantials = DB::table('crediantials')->select('live')->first();
+                        if ($crediantials->live == 0) {
+                            $message = session('servererror');
+                        } else {
+                            $message = session('error');
+                        }
+                        ?>
+                        {{ $message }}
+
                     </div>
                     @endif
                     @if ($errors->any())
@@ -51,8 +59,8 @@
         </div>
         <div class="col-md-3 text-center" style="font-size: 16px">
             <img src="{{asset('system_images/logo.jpg')}}" class="img-responsive">
-               <span>Ganesh S</span><br>
-                <span>Project Manager</span>
+            <span>Ganesh S</span><br>
+            <span>Project Manager</span>
             <div style="font-size: 14px; border-top:2px solid black">
                 #41/5,No 8,1st Main 2nd Cross,<br>
                 Muthurayaswamy Layout, D.B.Sandra<br>

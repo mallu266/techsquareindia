@@ -151,8 +151,8 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="{{ url('about_us') }}">About Us</a></li>
-                            <li><a href="{{ url('contact_us') }}">Contact Us</a></li>
+                            <li><a href="{{ url('aboutus') }}">About Us</a></li>
+                            <li><a href="{{ url('contactus') }}">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>

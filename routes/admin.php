@@ -47,8 +47,8 @@ Route::get('resources/edit/{id}', 'HomeController@editresources');
 Route::post('resources', 'HomeController@postresources');
 
 
-Route::get('about_us/{id?}', 'HomeController@getaboutus');
-Route::get('about_us/delete/{id}', 'HomeController@deleteaboutus');
+Route::get('aboutus/{id?}', 'HomeController@getaboutus');
+Route::get('aboutus/delete/{id}', 'HomeController@deleteaboutus');
 Route::post('about_us', 'HomeController@postaboutus');
 
 Route::get('default', 'HomeController@getdefault');

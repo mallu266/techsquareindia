@@ -51,74 +51,78 @@
      data-cycle-pause-on-hover="true"
      >@if($response)
     @foreach($response as $field)
-    <img onclick="return loadpage(this)" data-product-id="{{$field->product_id}}" data-resource-id="{{$field->resource_id}}" class="img-responsive" src="{{asset('slides/'.$field->slide)}}">
+    <img onclick="return loadpage(this)" alt="{{$field->title}}" data-product-id="{{$field->product_id}}" data-resource-id="{{$field->resource_id}}" class="img-responsive" src="{{asset('slides/'.$field->slide)}}">
 
     @endforeach
     @endif
 
 </div>
 <div class="container">
-    <div class="container">
-        <div class="row">
-            @if($thumbnails)
-            @foreach($thumbnails as $field)
-            <div class="col-sm-3 col-xs-6">
-                <div class="thumbnail">
-                    <div class="secrow">
-                        <div class="caption">
-                            {{$field->title}}
-                        </div>
-                        <img  class="img-responsive" src="{{asset('thumbnails/'.$field->image)}}">
+    <div class="row">
+        @if($thumbnails)
+        <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+            <h1>Latest Products</h1>
+        </div>
+        @foreach($thumbnails as $field)
+        <div class="col-sm-3 col-xs-6">
+            <div class="thumbnail">
+                <div class="secrow">
+                    <div class="caption">
+                        {{$field->title}}
                     </div>
+                    <img alt="{{$field->title}}" onclick="return loadpage(this)" data-product-id="{{$field->product_id}}" data-resource-id="{{$field->resource_id}}" class="img-responsive" src="{{asset('thumbnails/'.$field->image)}}">
                 </div>
             </div>
-            @endforeach
-            @endif
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <?php echo @$description->default; ?>
-            </div>
+        @endforeach
+        @endif
+    </div>
+    @if($description)
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+            <h1>Introduction</h1>
+        </div>
+        <div class="col-md-12">
+            <?php echo @$description->default; ?>
         </div>
     </div>
+    @endif
 </div>
-<br>
-
 @endsection
 @section('script')
 <script src="http://malsup.github.io/jquery.cycle2.carousel.js"></script>
 <script>
-                            $('.slideshow').cycle();
-                            $base_url = $('#base_url').attr('content');
-                            function loadpage(event) {
-                                $product_id = event.getAttribute('data-product-id');
-                                $resource_id = event.getAttribute('data-resource-id');
-                                window.location.href = $base_url + "/resources/" + $product_id + "/" + $resource_id;
+                        $('.slideshow').cycle();
+                        $base_url = $('#base_url').attr('content');
+                        function loadpage(event) {
+                            $product_id = event.getAttribute('data-product-id');
+                            $resource_id = event.getAttribute('data-resource-id');
+                            window.location.href = $base_url + "/resources/" + $product_id + "/" + $resource_id;
 
-                            }
-                            $(document).ready(function () {
+                        }
+                        $(document).ready(function () {
 
-                                $(function () {
-                                    $('.mm_tooltip').tooltip({
-                                        selector: "[data-toggle=tooltip]",
-                                        container: "body"
-                                    })
-                                });
+                            $(function () {
+                                $('.mm_tooltip').tooltip({
+                                    selector: "[data-toggle=tooltip]",
+                                    container: "body"
+                                })
+                            });
 
-                                $('.thumbnail').hover(
-                                        function () {
-                                            $(this).find('.caption').slideDown(300); //.fadeIn(250)
-                                        },
-                                        function () {
-                                            $(this).find('.caption').slideUp(200); //.fadeOut(205)
-                                        }
-                                );
+                            $('.thumbnail').hover(
+                                    function () {
+                                        $(this).find('.caption').slideDown(300); //.fadeIn(250)
+                                    },
+                                    function () {
+                                        $(this).find('.caption').slideUp(200); //.fadeOut(205)
+                                    }
+                            );
 
-                                $('#btndel').on('click', function () {
-                                    alert('Are you sure you want to delete');
-
-                                });
+                            $('#btndel').on('click', function () {
+                                alert('Are you sure you want to delete');
 
                             });
+
+                        });
 </script>
 @endsection

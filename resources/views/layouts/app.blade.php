@@ -71,10 +71,11 @@
                             @else
                             <?php
                             $crediantials = DB::table('crediantials')->select('live')->first();
-                            $live_status = $crediantials->live;
+                            $live_status = @$crediantials->live;
+                            $status = ($live_status) ? "success" : "warning";
                             ?>
                             <li><div class="text-success" id="maintainance"></div></li>
-                            <li><input onclick="return set_status(this)" type="button" style="margin-top: 15px" class="btn btn-primary btn-xs" value="<?php echo ($live_status == 1) ? "Live" : "Maintainance"; ?>"></li>
+                            <li><input onclick="return set_status(this)" type="button" style="margin-top: 15px" class="btn btn-{{$status}} btn-xs" value="<?php echo ($live_status == 1) ? "Live" : "Maintainance"; ?>"></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

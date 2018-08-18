@@ -24,8 +24,8 @@ Route::get('clear_cache', function () {
 Route::get('construction', 'TechsquareIndia@construction');
 Route::group(['middleware' => ['maintain']], function () {
     Route::get('/', 'TechsquareIndia@index');
-    Route::get('about_us', 'AboutUsController@index');
-    Route::get('contact_us', 'ContactController@index')->name('contact.create');
+    Route::get('aboutus', 'AboutUsController@index');
+    Route::get('contactus', 'ContactController@index')->name('contact.create');
     Route::post('contact', 'ContactController@store')->name('contact.store');
     Route::get('email', 'DefenceController@index');
     Route::get('analysis', 'GoogleController@index');
