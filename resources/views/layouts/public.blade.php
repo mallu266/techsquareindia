@@ -14,12 +14,12 @@
         <!-- Styles -->
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         <style>
             /* To Dropdown navbar dropdown on hover */
             .navbar-nav > li:hover > .dropdown-menu {
                 display: block;
-                
+
             }
             .dropdown-submenu {
                 position: relative;
@@ -48,7 +48,7 @@
                 border-width: 5px 0 5px 5px;
                 border-left-color: #ccc;
                 margin-top: 5px;
-                
+
                 margin-right: -10px;
             }
             .dropdown-submenu:hover>a:after {
@@ -65,6 +65,8 @@
                 border-radius: 6px 0 6px 6px;
             }
         </style>
+
+
     </head>
     <body>
         <div id="app">
@@ -86,7 +88,7 @@
                         <!-- Branding Image -->
                         <a class="navbar-brand" href="{{ url('/') }}">
                             @if($logo)
-                            <img src="{{asset('logo/'.@$logo)}}" class="img-responsive">
+                            <img alt="Techsquareindia" src="{{asset('logo/'.@$logo)}}" class="img-responsive">
                             @else
                             TechSquareIndia
                             @endif
@@ -174,7 +176,32 @@
         <!-- Scripts -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('js/jquery.cycle2.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.cycle2/2.1.6/jquery.cycle2.min.js"></script>
+        <!--<script src="{{ asset('js/jquery.cycle2.js') }}"></script>-->
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-124209869-1"></script>
+        <script>
+window.dataLayer = window.dataLayer || [];
+function gtag() {
+    dataLayer.push(arguments);
+}
+gtag('js', new Date());
+
+gtag('config', 'UA-124209869-1');
+        </script>
+        <script type="application/ld+json">
+            {
+            "@context": "http://schema.org",
+            "@type": "Organization",
+            "url": "http://www.techsquareindia.com",
+            "name": "Digital Water Indicator",
+            "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+918217633045",
+            "contactType": "Customer service"
+            }
+            }
+        </script>
         @yield('script')
     </body>
 </html>

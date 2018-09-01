@@ -49,7 +49,7 @@
                         <!-- Branding Image -->
                         <a class="navbar-brand" href="{{ url('/') }}">
                             @if($logo)
-                            <img src="{{asset('logo/'.@$logo)}}" class="img-responsive">
+                            <img alt="Techsquareindia" src="{{asset('logo/'.@$logo)}}" class="img-responsive">
                             @else
                             TechSquareIndia
                             @endif

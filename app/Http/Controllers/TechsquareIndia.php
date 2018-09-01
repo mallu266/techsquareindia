@@ -12,16 +12,16 @@ class TechsquareIndia extends Controller {
         $server_name = $_SERVER['SERVER_NAME'];
         $crediantials = DB::table('crediantials')->select('live')->first();
         if (($server_name == '127.0.0.1' || $server_name == 'techsquareindia.com') && @$crediantials->live == 0) {
-             return view('underconstruction');
+            return view('underconstruction');
         } else {
             return redirect('/');
         }
     }
 
     public function index() {
-        SEO::setTitle('Techsquareindia');
-        SEO::setDescription('techsquare, techsquareindia,digital mono, digital water level controller');
-        SEO::opengraph()->setUrl(url('/'));
+        SEO::setTitle('Airflow transmitter');
+        SEO::setDescription('Techsquareindia, Pressure Transmitter,Air Velocity 0 to 5 m/s, Air velocity sensor,digital manometer,pressure transmitter,waterlevel controller');
+        SEO::opengraph()->setUrl('https://www.facebook.com/TechsquareBangalore-231831174078990/');
         SEO::opengraph()->addProperty('type', 'techsquare');
         $response = DB::table('slides')->get();
         $thumbnails = DB::table('thumbnails')->get();

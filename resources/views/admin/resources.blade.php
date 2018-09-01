@@ -8,7 +8,7 @@
         </div>
         <div class="col-md-9">
             <div class="panel panel-default">
-                <div class="panel-heading">Resources</div>
+                <div class="panel-heading">Resources <a href="{{url('admin/resources')}}" class="btn btn-success btn-xs pull-right">Add</a></div>
 
                 <div class="panel-body">
                     @if (session('status'))
