@@ -6,5 +6,6 @@
     <a href="{{url('admin/thumbnails')}}" class="list-group-item">Thumbnails</a>
     <a href="{{url('admin/product')}}" class="list-group-item">Product</a>
     <a href="{{url('admin/resources')}}" class="list-group-item">Resources</a>
+    <a href="{{url('admin/pripolicy')}}" class="list-group-item">Privacy Policy</a>
     <a href="{{url('admin/changepws')}}" class="list-group-item">Change Password</a>
 </div>

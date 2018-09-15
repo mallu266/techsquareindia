@@ -4,7 +4,7 @@
 <div class="container">
     <br>
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-8">
             <div class="panel panel-default">
                 <div class="panel-heading">Contact Us</div>
                 <div class="panel-body">
@@ -57,18 +57,19 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3 text-center" style="font-size: 16px">
-            <img src="{{asset('system_images/logo.jpg')}}" class="img-responsive">
-            <span>Ganesh S</span><br>
-            <span>Project Manager</span>
-            <div style="font-size: 14px; border-top:2px solid black">
-                #41/5,No 8,1st Main 2nd Cross,<br>
-                Muthurayaswamy Layout, D.B.Sandra<br>
-                Vidyaranyapura Post,<br>
-                Bangalore 560097<br>
-                080-23455484<br>
-                +91-9900266937<br>
-                query@techsquareindia.com<br>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Address</div>
+                <div class="panel-body text-center">
+                     #41/5,No 8,1st Main 2nd Cross,<br>
+                    Muthurayaswamy Layout, D.B.Sandra<br>
+                    Vidyaranyapura Post,<br>
+                    Bangalore 560097<br>
+                    080-23455484<br>
+                    +91-9900266937<br>
+                    query@techsquareindia.com<br>
+                    <image class="img-rounded" width="150" height="150" src="{{asset('system_images/contacts.png')}}">
+                </div>
             </div>
         </div>
     </div>

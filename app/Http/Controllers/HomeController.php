@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Aboutus;
 use App\MainPage;
 use App\Resources;
+use App\PriPolicy;
 use Exception;
 use App\Crediantials;
 
@@ -161,6 +162,13 @@ class HomeController extends Controller {
         return view('admin.resources', ['response' => $response, 'products' => $products]);
     }
 
+    public function editresources($id) {
+        $products = DB::table('products')->select('id', 'product')->get();
+        $response = DB::table('resources')->select('id', 'title', 'image', 'description')->get();
+        $resources = DB::table('resources')->where('id', $id)->first();
+        return view('admin.resources', ['response' => $response, 'products' => $products, 'resources' => $resources]);
+    }
+
     public function postresources(Request $request) {
         $id = $request->get('id');
         $product_id = $request->get('product_id');
@@ -260,11 +268,34 @@ class HomeController extends Controller {
         return back()->with('status', 'Deleted Successfully');
     }
 
-    public function editresources($id) {
-        $products = DB::table('products')->select('id', 'product')->get();
-        $response = DB::table('resources')->select('id', 'title', 'image', 'description')->get();
-        $resources = DB::table('resources')->where('id', $id)->first();
-        return view('admin.resources', ['response' => $response, 'products' => $products, 'resources' => $resources]);
+    public function getpripolicy($id = NULL) {
+        $response = DB::table('pri_policies')->select('id', 'pripolicy')
+                ->where(function ($query) use($id) {
+                    if ($id) {
+                        $query->where([
+                                ['id', $id]
+                        ]);
+                    }
+                })
+                ->first();
+        return view('admin.pripolicy', ['response' => $response]);
+    }
+
+    public function postpripolicy(Request $request) {
+        $id = $request->get('id');
+        if ($id) {
+            $mainpage = PriPolicy::find($id);
+        } else {
+            $mainpage = new PriPolicy();
+        }
+        $mainpage->pripolicy = $request->get('pripolicy');
+        $mainpage->save();
+        return back()->with('status', 'Successful uploaded');
+    }
+
+    public function deletepripolicy($id) {
+        DB::table('pri_policies')->where('id', $id)->delete();
+        return back()->with('status', 'Deleted Successfully');
     }
 
     public function maintainance($value) {

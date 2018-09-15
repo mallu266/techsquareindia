@@ -161,18 +161,19 @@
             </nav>
             @yield('content')
         </div>
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <?php echo date('Y'); ?>
-                    </div>
-                    <div classs="col-md-8">
-
-                    </div>
-                </div>
+        <nav class="navbar navbar-inverse ">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="active"><a href="#">Copyright @ <?php echo date("Y") ?></a></li>
+                   
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="{{url('pripolicy')}}">Privecy Policy</a></li>
+                    <li><a href="{{url('sitemap')}}">Site Map</a></li>
+                   
+                </ul>
             </div>
-        </footer>
+        </nav>
         <!-- Scripts -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>

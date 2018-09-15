@@ -30,4 +30,6 @@ Route::group(['middleware' => ['maintain']], function () {
     Route::get('email', 'DefenceController@index');
     Route::get('analysis', 'GoogleController@index');
     Route::get('resources/{type}/{id}', 'TechsquareIndia@resources');
+    Route::get('pripolicy', 'TechsquareIndia@pripolicy');
+    Route::get('sitemap', 'TechsquareIndia@sitemap');
 });

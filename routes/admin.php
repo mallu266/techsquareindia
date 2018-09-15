@@ -52,5 +52,14 @@ Route::get('aboutus/delete/{id}', 'HomeController@deleteaboutus');
 Route::post('about_us', 'HomeController@postaboutus');
 
 Route::get('default', 'HomeController@getdefault');
+Route::post('default', 'HomeController@postdefault');
 Route::get('default/delete/{id}', 'HomeController@deletedefault');
+
+Route::get('pripolicy', 'HomeController@getpripolicy');
+Route::post('pripolicy', 'HomeController@postpripolicy');
+Route::get('default/delete/{id}', 'HomeController@deletedefault');
+
+
+
+
 Route::get('maintainance/{value}', 'HomeController@maintainance');

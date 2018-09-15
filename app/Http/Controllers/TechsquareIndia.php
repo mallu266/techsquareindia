@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use SEO;
 use Illuminate\Support\Facades\DB;
+use App\PriPolicy;
 
 class TechsquareIndia extends Controller {
 
@@ -33,6 +34,16 @@ class TechsquareIndia extends Controller {
     public function resources($type, $id) {
         $response = DB::table('resources')->where('product_id', $type)->where('id', $id)->first();
         return view('resources', ['response' => $response]);
+    }
+
+    public function pripolicy() {
+        $resources = PriPolicy::first();
+        return view('pripolicy', ['response' => $resources]);
+    }
+
+    public function sitemap() {
+        $resources = NULL;
+        return view('sitemap', ['response' => $resources]);
     }
 
 }
